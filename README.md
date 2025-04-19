@@ -6,9 +6,11 @@
 
 A Python service that intelligently manages and retrieves information from a collection of domain-specific documents related to upcoming concert tours in 2025-2026.
 
-![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)
-![LangChain](https://img.shields.io/badge/LangChain-0.1.0-green.svg)
-![FAISS](https://img.shields.io/badge/FAISS-1.7.4-orange.svg)
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+"/>
+  <img src="https://img.shields.io/badge/LangChain-0.1.0-green.svg" alt="LangChain"/>
+  <img src="https://img.shields.io/badge/FAISS-1.7.4-orange.svg" alt="FAISS"/>
+</p>
 
 ## Quick Start
 
