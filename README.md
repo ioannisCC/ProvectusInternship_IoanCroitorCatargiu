@@ -1,6 +1,34 @@
 # Concert Tour Information Service
 
+<p align="center">
+  <img src="screenshots/main_screenshot.png" alt="Concert Tour Information Service" width="800"/>
+</p>
+
 A Python service that intelligently manages and retrieves information from a collection of domain-specific documents related to upcoming concert tours in 2025-2026.
+
+![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)
+![LangChain](https://img.shields.io/badge/LangChain-0.1.0-green.svg)
+![FAISS](https://img.shields.io/badge/FAISS-1.7.4-orange.svg)
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/concert-tour-service.git
+cd concert-tour-service
+
+# Set up environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+
+# Create .env file with your OpenAI API key
+echo "OPENAI_API_KEY=your_key_here" > .env
+
+# Run the Streamlit app
+streamlit run streamlit_app.py
+```
 
 ## Features
 
@@ -18,6 +46,10 @@ The service is built with the following components:
 3. **Query Engine**: Answers user questions based on the retrieved document information
 4. **Web Search Engine (Bonus)**: Retrieves information from public sources when no document data is available
 5. **UI**: Streamlit-based interface for easy interaction (optional)
+
+<p align="center">
+  <img src="screenshots/architecture.png" alt="System Architecture" width="700"/>
+</p>
 
 ## Installation
 
@@ -85,7 +117,7 @@ You can also provide a query directly:
 python main.py --query "Where is Taylor Swift performing in Europe in 2025?"
 ```
 
-### Streamlit UI (Optional)
+### Streamlit UI (Recommended)
 
 To use the Streamlit interface:
 
@@ -94,6 +126,10 @@ streamlit run streamlit_app.py
 ```
 
 This will start the Streamlit server and open the UI in your default web browser.
+
+<p align="center">
+  <img src="screenshots/streamlit_demo.gif" alt="Streamlit Demo" width="700"/>
+</p>
 
 ## Example Usage
 
@@ -133,6 +169,7 @@ concert_tour_service/
 │   └── utils.py               # Helper functions
 ├── data/                      # To store document embeddings 
 ├── tests/                     # Unit tests
+├── screenshots/               # UI screenshots and diagrams
 ├── requirements.txt           # Dependencies
 ├── main.py                    # Entry point
 ├── streamlit_app.py           # Streamlit UI
@@ -159,15 +196,32 @@ concert_tour_service/
 - **Grounded Answers**: Responses are strictly grounded in the provided documents, avoiding hallucination
 - **Clarity**: Answers are formatted to clearly present tour dates, venues, and other details
 
-## Future Improvements
+## Limitations and Assumptions
 
-- Enhance web search functionality with more reliable data sources
-- Add support for structured data formats (CSV, JSON)
-- Improve entity recognition for better extraction of concert-specific information
-- Implement caching for improved performance
-- Add user authentication for personalized document collections
-- Implement data persistence for web search results
-- Add support for image and rich media content
+This system has a few limitations to be aware of:
+
+1. **Document Format**: The system works best with plain text documents that follow common formatting patterns for concert tour announcements
+2. **Time Range**: Currently focused on 2025-2026 tours; documents about past tours may be rejected
+3. **Language**: Optimized for English-language documents and queries
+4. **Web Search Reliability**: The web search feature provides best-effort results but may not always find complete or up-to-date information
+5. **API Dependency**: Requires an OpenAI API key for question answering functionality
+
+## Troubleshooting
+
+### Common Issues
+
+- **Document Not Accepted**: Ensure your document mentions concert tours in 2025-2026 and contains at least 3 concert-related keywords
+- **Missing API Key**: Check that your `.env` file contains a valid OpenAI API key
+- **Web Search Not Working**: Verify web search is enabled in the Settings tab (Streamlit UI)
+- **Slow Response Time**: Complex questions or large documents may take longer to process
+
+### Debug Mode
+
+To run in debug mode with additional logging:
+
+```bash
+streamlit run streamlit_app.py -- --debug
+```
 
 ## License
 
