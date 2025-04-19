@@ -4,7 +4,9 @@
   <img src="screenshots/main_screenshot.png" alt="Concert Tour Information Service" width="800"/>
 </p>
 
+<p align="center">
 A Python service that intelligently manages and retrieves information from a collection of domain-specific documents related to upcoming concert tours in 2025-2026.
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+"/>
